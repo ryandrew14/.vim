@@ -17,7 +17,7 @@ command Rtest w | ! raco test %
 command Rrun w | ! racket %
 
 " python run
-command Prun python %
+command Prun ! python %
 
 " jekyll commands
 command Jserve bundle exec jekyll serve
