@@ -7,6 +7,7 @@ if has("autocmd")
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set scrolloff=10
 
 set number
 syntax on
@@ -20,7 +21,11 @@ command Rrun w | ! racket %
 command Prun ! python %
 
 " jekyll commands
-command Jserve bundle exec jekyll serve
+command Jserve ! bundle exec jekyll serve
+
+" pandoc commands
+command Ppdf w | ! pandoc % -s -o out.pdf; and open out.pdf
+command TableModeHeaders let g:table_mode_corner_corner='+' | let g:table_mode_header_fillchar='='
 
 " allow more yanking
 set viminfo='20,<1000
@@ -41,6 +46,7 @@ map <C-n> :NERDTreeToggle<CR>
 " map C-w to tab for easy management of split
 map <tab> <C-W><C-W> 
 
+
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -52,5 +58,8 @@ execute plug#begin('~/.vim/plugged')
 	Plug 'junegunn/rainbow_parentheses.vim'
     Plug 'bling/vim-bufferline'
     Plug 'vim-airline/vim-airline'
+    Plug 'vim-pandoc/vim-pandoc'
+    Plug 'vim-pandoc/vim-pandoc-syntax'
+    Plug 'dhruvasagar/vim-table-mode'
 execute plug#end()
 execute pathogen#infect()
