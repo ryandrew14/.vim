@@ -1,8 +1,8 @@
 if has("autocmd")
 
-    au BufReadPost *.rkt,*.rktl set filetype=scheme
+  au BufReadPost *.rkt,*.rktl set filetype=scheme
 
-  endif
+endif
 " tabs
 set tabstop=4
 set shiftwidth=4
@@ -49,17 +49,17 @@ map <tab> <C-W><C-W>
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " vim-plug section
 execute plug#begin('~/.vim/plugged')
-	Plug 'junegunn/rainbow_parentheses.vim'
-    Plug 'bling/vim-bufferline'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-pandoc/vim-pandoc'
-    Plug 'vim-pandoc/vim-pandoc-syntax'
-    Plug 'dhruvasagar/vim-table-mode'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'bling/vim-bufferline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'dhruvasagar/vim-table-mode'
 execute plug#end()
 execute pathogen#infect()
