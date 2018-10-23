@@ -1,8 +1,7 @@
 if has("autocmd")
-
   au BufReadPost *.rkt,*.rktl set filetype=scheme
-
 endif
+
 " tabs
 set tabstop=4
 set shiftwidth=4
